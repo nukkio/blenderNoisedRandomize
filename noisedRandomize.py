@@ -1,7 +1,7 @@
 
 bl_info = {
-	"name": "Noised random",
-	"description": "Noised random",
+	"name": "Noised Randomize",
+	"description": "Noised Randomize",
 	"author": "io",
 	"version": (0, 0, 1),
 	"blender": (2, 80, 0),
@@ -9,7 +9,7 @@ bl_info = {
 	"warning": "",
 	"wiki_url": ""
 				"",
-	"category": "Object",
+	"category": "Scene",
 }
 
 
@@ -289,7 +289,7 @@ class NRSettings(PropertyGroup):
 		default=550,
 		min=0,
 		max=1000,
-		description="Scale of noise image",
+		description="Scale of noise",
 		update=nrUpdate
 		)
 
@@ -299,7 +299,7 @@ class NRSettings(PropertyGroup):
 		default=0,
 		min=-10000,
 		max=10000,
-		description="Position X of noise image",
+		description="Position X of noise",
 		update=nrUpdate
 		)
 	NRposy: FloatProperty(
@@ -307,7 +307,7 @@ class NRSettings(PropertyGroup):
 		default=0,
 		min=-10000,
 		max=10000,
-		description="Position Y of noise image",
+		description="Position Y of noise",
 		update=nrUpdate
 		)
 	NRposz: FloatProperty(
@@ -315,7 +315,7 @@ class NRSettings(PropertyGroup):
 		default=1,
 		min=-10000,
 		max=10000,
-		description="Position Z of noise image",
+		description="Position Z of noise",
 		update=nrUpdate,
 		)
 
@@ -337,7 +337,7 @@ class NRSettings(PropertyGroup):
 			("RANDOM","Random","pure random")
 
 		),
-		default="RANDOM",
+		default="BLENDER",
 		update=nrUpdate,
 		)
 #		nome collezione
@@ -429,7 +429,7 @@ class NRSettings(PropertyGroup):
 
 
 class NOISED_PT_Random(Panel):
-	bl_label = "Noised random"
+	bl_label = "Noised randomize"
 	bl_space_type = 'PROPERTIES'
 	bl_region_type = 'WINDOW'
 	bl_context = "scene"
@@ -475,7 +475,7 @@ class NOISED_PT_Random(Panel):
 		rowList.append(row16)
 		
 		rn=0
-		rowList[rn].label(text="Noise image settings")
+		rowList[rn].label(text="Noise settings")
 		rn+=1
 		rowList[rn].prop(nrs, "NRscl")
 		rn+=1
@@ -483,7 +483,7 @@ class NOISED_PT_Random(Panel):
 		rowList[rn].prop(nrs, "NRposy",text="loc Y")
 		rowList[rn].prop(nrs, "NRposz",text="loc Z")
 		rn+=1
-		rowList[rn].label(text="Noise image type")
+		rowList[rn].label(text="Noise type")
 		rowList[rn].prop(nrs, "NRtype")
 		rn+=1
 
