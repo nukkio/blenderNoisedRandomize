@@ -2,12 +2,12 @@
 bl_info = {
 	"name": "Noised Randomize",
 	"description": "Noised Randomize",
-	"author": "io",
-	"version": (0, 0, 1),
+	"author": "nukkio",
+	"version": (0, 1, 0),
 	"blender": (2, 80, 0),
-	"location": "Object Settings",
+	"location": "Scene Settings",
 	"warning": "",
-	"wiki_url": ""
+	"wiki_url": "https://github.com/nukkio/blenderNoisedRandomize"
 				"",
 	"category": "Scene",
 }
