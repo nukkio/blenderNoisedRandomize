@@ -102,10 +102,10 @@ def nr_animation_update(scn):
 def setNRtransform():
 #	print("setNRtransform")
 	scn = bpy.context.scene
-	frame = scn.frame_current
+	#frame = scn.frame_current
 	nrs = scn.nrsettings
 	#controlla tutti gli oggetti della collezione
-	if nrs.NR_enabled==True:
+	if nrs.NR_enabled==True and nrs.NR_is_hide==False:
 		collName=nrs.NR_collName
 #		print("ready "+collName)
 		nrColl = bpy.data.collections[collName]
@@ -126,8 +126,8 @@ def setNRtransform():
 			ob.delta_scale.y=1+(nrval*nrs.NR_trsf_scly_s)
 			ob.delta_scale.z=1+(nrval*nrs.NR_trsf_sclz_s)
 			
-	else:
-		print("NR not ready")
+#	else:
+#		print("NR not ready")
 
 def copyNRtransform(nrs,removeNR):
 	collName=nrs.NR_collName
@@ -233,8 +233,11 @@ def getNRval(ob,nrss):
 
 	#controlla la dimensione dell'immagine noise
 #	nS=nrs.NRscl/100
-	nS=((nrs.NRscl*-1)+1000)/100
-
+	
+	#nS=((nrs.NRscl*-1)+1000)/100
+	nS=((nrs.NRscl*-1)+1000)/1000 
+	#nS=nrs.NRscl/1000
+	
 	#posizione dell'immagine noise
 	nX=nrs.NRposx
 	nY=nrs.NRposy
